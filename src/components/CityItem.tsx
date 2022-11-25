@@ -82,12 +82,12 @@ const CityItem = ({ item }: any): React.ReactElement => {
             <Typography gutterBottom variant="h5" component="div">
               {item.title}
             </Typography>
-            {apiData.main === true
+            {apiData.main != null
               ? <Typography variant="body2" color="text.secondary">
                 {apiData.main.temp}°F
               </Typography>
               : null}
-            {apiData.weather === true
+            {apiData.weather != null
               ? <Typography variant="body2" color="text.secondary">
                 {apiData.weather[0].main}
               </Typography>
@@ -98,7 +98,7 @@ const CityItem = ({ item }: any): React.ReactElement => {
             <Button onClick={() => setRefreshData(!refreshData)} size="small"><RefreshIcon /></Button>
           </CardActions>
         </Box>
-        {apiData.weather === true
+        {apiData.weather != null
           ? <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
             <img
               // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
